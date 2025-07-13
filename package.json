@@ -7,6 +7,7 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://github.com/shizongli94/yup-utils",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
