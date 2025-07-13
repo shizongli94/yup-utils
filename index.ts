@@ -5,6 +5,19 @@ export function enumSchema<T extends Record<string, string | number>>(enumObj: T
   return mixed<T[keyof T]>().oneOf(values);
 }
 
+export function enumSchemaWithDefault<T extends Record<string, string | number>>(
+  enumObj: T,
+  defaultValue: T[keyof T]
+) {
+  const values = Object.values(enumObj) as T[keyof T][];
+  return mixed<T[keyof T]>().oneOf(values).default(defaultValue);
+}
+
+export function enumSchemaRequired<T extends Record<string, string | number>>(enumObj: T): Schema<T[keyof T]> {
+  const values = Object.values(enumObj) as unknown as T[keyof T][];
+  return mixed<T[keyof T]>().oneOf(values).defined().required();
+}
+
 export function uuid() {
   return string().trim().uuid()
 }

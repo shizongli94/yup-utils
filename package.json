@@ -16,7 +16,7 @@
   "author": "Zongli Shi",
   "license": "MIT",
   "peerDependencies": {
-    "yup": "^1.4.0"
+    "yup": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.13"
