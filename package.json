@@ -4,10 +4,12 @@
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run tsc"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "Zongli Shi",
