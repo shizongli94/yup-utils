@@ -43,6 +43,21 @@ const validatedLangName : LangName = await langNameSchema.validate(someLangName)
 // validation fails and throws an error
 ```
 
+- **enumSchemeUndefinedOnError**
+```typescript
+enum LangName {
+	english='english',
+	french='french',
+}
+
+const langNameSchema = enumSchemeUndefinedOnError(LangName).default(LangName.english)
+const someLangName = "aaa"
+
+const validatedLangName : LangName = await langNameSchema.validate(someLangName)
+console.log(validatedLangName)
+// output: "english"
+```
+
 - **uuid()**
 Just in case you don't want to strain your fingers by typing `string().trim().uuid()`
 - **sha256Hex()**

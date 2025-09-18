@@ -18,6 +18,11 @@ export function enumSchemaRequired<T extends Record<string, string | number>>(en
   return mixed<T[keyof T]>().oneOf(values).defined().required();
 }
 
+export function enumSchemeUndefinedOnError<T extends Record<string, string | number>>(enumObj: T): Schema<T[keyof T] | undefined> {
+  const values = Object.values(enumObj) as unknown as T[keyof T][];
+  return mixed<T[keyof T]>().transform(v => values.includes(v) ? v : undefined)
+}
+
 export function uuid() {
   return string().trim().uuid()
 }
